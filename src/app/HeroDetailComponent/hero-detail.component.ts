@@ -15,6 +15,11 @@ import { Hero } from '../hero';
 export class HeroDetailComponent implements OnInit {
   @Input() hero: Hero;
   
+  save(): void {
+    this.heroService.update(this.hero)
+      .then(() => this.goBack());
+  }
+
   goBack(): void {
     this.location.back();
   }
